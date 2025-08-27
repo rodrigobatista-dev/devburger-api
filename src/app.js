@@ -1,6 +1,8 @@
 import express from 'express';
 import routes from './routes.js';
 
+import './database/index.js';
+
 const name = 'rodrigo';
 
 class App {
