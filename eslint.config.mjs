@@ -19,6 +19,6 @@ export default {
   rules: {
     quotes: ['error', 'single'], // aspas simples
     semi: ['error', 'always'], // ponto e vírgula
-    'prettier/prettier': ['error'], // integra Prettier
+   
   },
 };
