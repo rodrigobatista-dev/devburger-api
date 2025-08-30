@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import Product from '../models/Product.js';
 import Category from '../models/Category.js';
+import User from '../models/User.js';
 
 class ProductController {
   async store(req, res) {
@@ -19,6 +20,14 @@ class ProductController {
     if (!req.file) {
       return res.status(400).json({ error: 'File is required' });
     }
+
+    const { admin: isAdmin } = await User.findByPk(req.userId);
+
+    if (!isAdmin) {
+      return res.status(401).json({ error: 'Usuário não autorizado' });
+    }
+
+
     const { filename: path } = req.file;
 
     const { name, price, category_id } = req.body;
