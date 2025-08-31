@@ -20,6 +20,10 @@ class App {
       '/product-file',
       express.static(resolve(process.cwd(), 'uploads')),
     );
+    this.app.use(
+      '/category-file',
+      express.static(resolve(process.cwd(), 'uploads')),
+    );
   }
 
   routes() {
